@@ -35,8 +35,12 @@ public class Term {
 
     @Override
     public String toString() {
-        return start.getMonthValue() + "/" + start.getDayOfMonth() + " "
-                + start.getHour() + ":" + start.getMinute() + " - "
-                + end.getHour() + ":" + end.getMinute();
+        var month = start.getMonthValue();
+        var day = start.getDayOfMonth();
+        var startHour = start.getHour();
+        var startMinute = start.getMinute() == 0 ? "00" : start.getMinute();
+        var endHour = end.getHour();
+        var endMinute = end.getMinute() == 0 ? "00" : end.getMinute();
+        return month + "/" + day + " " + startHour + ":" + startMinute + " ~ " + endHour + ":" + endMinute;
     }
 }
